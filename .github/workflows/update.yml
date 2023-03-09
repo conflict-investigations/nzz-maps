@@ -1,0 +1,48 @@
+name: Fetch latest map states as json
+
+permissions:
+  contents: write
+  # packages: write
+
+# Controls when the action will run.
+on:
+  workflow_dispatch:
+  schedule:
+    # Every day at '02:22'
+    # "Random" value to ensure it doesn't collide with peak scheduling hours
+    - cron:  '22 2 * * *'
+
+jobs:
+  fetch_map_and_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Run scrape.py
+      run: python scrape.py
+      env:
+        TZ: Europe/Paris
+
+    - name: Commit files
+      run: |
+          git lfs install
+          git status
+          echo "Checking data on: `date`"
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "New update available"
+            git config --local user.name actions-user
+            git config --local user.email "actions@github.com"
+            git add -A
+            git commit -am "Automatic data update - $(date '+%Y-%m-%d_%H%M')"
+            git push origin master
+          else
+            echo "No changes to commit"
+          fi
+      env:
+        TZ: Europe/Paris
