@@ -22,3 +22,12 @@ See the accompanying ipython jupyter notebook
 
 **Net territory control change in km²**
 ![net](nzz_area_net.png)
+
+### Data sources
+
+NZZ says this about themselves:
+
+> For our map we use data from Liveuamap. This organization emerged in 2014 in
+> Ukraine during the annexation of Crimea. Since then, the staff has dealt with
+> various conflicts both in and outside Europe. The NZZ has also relied on its
+> data for other conflicts.
