@@ -15,7 +15,8 @@ Endpoints: Served from `q-server.st-cdn.nzz.ch` as base API server.
 
 ### Analysis
 
-See the accompanying ipython jupyter notebook
+See the accompanying ipython jupyter notebook:
+[nzz_territory.ipynb](nzz_territory.ipynb)
 
 **Russian-occupied Ukrainian territory in km^2**
 ![total](nzz_area_total.png)
