@@ -28,7 +28,10 @@ jobs:
         cache: 'pip'
         cache-dependency-path: 'requirements.txt'
 
-    - name: Run scrape.py
+    - name: Install Python dependencies via pip
+      run: pip install -r requirements.txt
+
+    - name: Fetch latest map data via scrape.py
       run: python scrape.py
 
     - name: Recompute area via update_csv.py
@@ -44,7 +47,7 @@ jobs:
             git config --local user.name "actions-user"
             git config --local user.email "actions@github.com"
             git add .
-            git commit -am "Automatic data update - $(date '+%Y-%m-%d_%H%M')"
+            git commit -am "Automatic data update - $(date '+%Y-%m-%d %H:%M')"
             git push origin master
           else
             echo "No changes to commit"
