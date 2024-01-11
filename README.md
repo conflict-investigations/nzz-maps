@@ -1,5 +1,10 @@
 # Territory control via nzz.ch map
 
+*Note: If you plan on publishing graphics based upon this data or use it
+commercially, be mindful of the fact that it would not exist without the hard
+work of the folks from [liveuamap.com](https://liveuamap.com/). A subscription
+helps keep this vital source about the war alive.*
+
 ### Scraping the data
 
 Run `python scrape.py`. The data is updated automatically via GitHub actions
@@ -32,3 +37,6 @@ NZZ says this about themselves:
 > Ukraine during the annexation of Crimea. Since then, the staff has dealt with
 > various conflicts both in and outside Europe. The NZZ has also relied on its
 > data for other conflicts.
+
+NZZ also only periodically updates data and works in time frames, not daily
+changes. See ["Limitations"](https://github.com/conflict-investigations/nzz-maps/issues/1).
